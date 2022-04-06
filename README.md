@@ -12,3 +12,9 @@ And if you want to add them yourself go ahead!
 The object of Git is to bring easy git commands to c developers who, for whatever reason, may want to do it. 
 
 currently to execute git commands in c for when a git command has multiple options, there is two functions for most commands. Like `git init` has a function `gitInit();` and `gitInitDir();` with git init using the source directory of the executable, while git init dir requires a set directory.
+
+
+## How to use
+downlaod the `gitlib.c` and add it to your directory and then include it `#include "gitlib.c"`
+
+and now you can call on any of the functions for running git commands.

@@ -15,13 +15,14 @@ void gitInit (){
 
 
 //Initialize git repository in a specific directory
-//@param directory: the specific directory you want to initialzie a repo in
+//@param directory: the specific directory you want to initialize a repo in
 void gitInitDir (char *dir){
    
     char *command = "git init" ;
     strcat(command, dir);
     system(command);
-    printf("Initialized empty Git repository in %s\n", dir);
+    printf("Initialized empty Git repository in %s\n", dir);\
+
 };
 
 
@@ -94,6 +95,15 @@ void gitBranch (char *branch){
     
 };
 
+//Delete current branch
+void gitBranchDelete(){
+    
+    char *command = "git branch -d ";
+    system(command);
+    printf("Deleted current branch\n");
+    
+};
+
 //Checkout a branch
 //@param branch: the name of the branch you want to checkout
 void gitCheckout (char *branch){
@@ -133,20 +143,6 @@ void gitMerge (char *branch){
     
 };
 
-//Push the current branch to a remote repository
-//@param remote: the remote repository you want to push to
-void gitPushCurrent (char *remote){
-    
-    char *command = "git push ";
-    strcat(command, remote);
-    system(command);
-    printf("Pushed the current branch to remote repository '");
-    printf(remote);
-    printf("'\n");
-    
-};
-
-
 //Pull the current branch from a remote repository
 //@param remote: the remote repository you want to pull from
 void gitPull (char *remote){
@@ -161,8 +157,8 @@ void gitPull (char *remote){
 };
 
 
-//Push a specified branch to a remote repository
-//@param remote: the remote repository you want to push to
+//Push a specified branch to a remote name
+//@param remote: the remote name you want to push to
 //@param branch: the branch you want to push
 void gitPushBranch (char *remote, char *branch){
     
@@ -196,6 +192,8 @@ void gitPullBranch (char *remote, char *branch){
 //Get git status of the current directory
 void gitStatus (){
     system("git status");  
+    //set up printing of the status
+    //print the status git status
 };
 
 //git revert to a previous commit 
@@ -211,3 +209,13 @@ void gitRevert (char *commit){
     
 };
 
+
+//git command which allows the user to input any git command
+//@param command: the command you want to run
+void gitCustom (char *command){
+    //idkw hy I added this but i wanted too
+    strcat("git", command);
+
+    system(command);
+    
+};

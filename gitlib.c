@@ -219,3 +219,17 @@ void gitCustom (char *command){
     system(command);
     
 };
+
+
+//git command that allows user to add a string TAG
+//@param tag: the tag you want to add
+void gitTag (char *tag){
+    
+    char *command = "git tag ";
+    strcat(command, tag);
+    system(command);
+    printf("Tagged '");
+    printf(tag);
+    printf("'\n");
+    
+};

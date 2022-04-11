@@ -1,3 +1,5 @@
+//Author: David Schiereck
+
 //initialize basic c libraries
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,8 +9,7 @@
 //Initialize a repo in whatever directory the executable/c file is in
 void gitInit (){ 
 
-    system("git init");
-    printf("Initialized empty Git repository in this directory\n");  
+    system("git init");  
 
 };
 
@@ -21,7 +22,6 @@ void gitInitDir (char *dir){
     char *command = "git init" ;
     strcat(command, dir);
     system(command);
-    printf("Initialized empty Git repository in %s\n", dir);\
 
 };
 
@@ -33,10 +33,7 @@ void gitClone (char *url){
     char *command = "git clone ";
     strcat(command, url);
     system(command);
-    printf("Cloning into '");
-    printf(url);
-    printf("'\n");
-    
+
 };
 
 //Clone a repository to a specific directory
@@ -49,9 +46,7 @@ void gitCloneDir (char *url, char *dir){
     strcat(command, " ");
     strcat(command, dir);
     system(command);
-    printf("Cloning into '");
-    printf(dir);
-    printf("'\n");
+    
     
 };
 
@@ -62,9 +57,6 @@ void gitAdd (char *file){
     char *command = "git add ";
     strcat(command, file);
     system(command);
-    printf("Adding '");
-    printf(file);
-    printf("'\n");
     
 };
 
@@ -76,9 +68,6 @@ void gitCommit (char *message){
     char *command = "git commit -m ";
     strcat(command, message);
     system(command);
-    //weird error at random times with this print statement
-    printf("Committed: ");
-    printf(message);
     
 };
 
@@ -89,9 +78,6 @@ void gitBranch (char *branch){
     char *command = "git branch ";
     strcat(command, branch);
     system(command);
-    printf("Created branch '");
-    printf(branch);
-    printf("'\n");
     
 };
 
@@ -100,7 +86,6 @@ void gitBranchDelete(){
     
     char *command = "git branch -d ";
     system(command);
-    printf("Deleted current branch\n");
     
 };
 
@@ -111,9 +96,6 @@ void gitCheckout (char *branch){
     char *command = "git checkout ";
     strcat(command, branch);
     system(command);
-    printf("Switched to branch '");
-    printf(branch);
-    printf("'\n");
     
 };
 
@@ -124,9 +106,6 @@ void gitPush (char *remote){
     char *command = "git push ";
     strcat(command, remote);
     system(command);
-    printf("Pushed to remote repository '");
-    printf(remote);
-    printf("'\n");
     
 };
 
@@ -137,10 +116,6 @@ void gitMerge (char *branch){
     char *command = "git merge ";
     strcat(command, branch);
     system(command);
-    printf("Merged '");
-    printf(branch);
-    printf("' into the current branch\n");
-    
 };
 
 //Pull the current branch from a remote repository
@@ -150,9 +125,6 @@ void gitPull (char *remote){
     char *command = "git pull ";
     strcat(command, remote);
     system(command);
-    printf("Pulled from '");
-    printf(remote);
-    printf("'\n");
     
 };
 
@@ -167,9 +139,6 @@ void gitPushBranch (char *remote, char *branch){
     strcat(command, " ");
     strcat(command, branch);
     system(command);
-    printf("Pushed to '");
-    printf(remote);
-    printf("'\n");
     
 };
 
@@ -183,9 +152,6 @@ void gitPullBranch (char *remote, char *branch){
     strcat(command, " ");
     strcat(command, branch);
     system(command);
-    printf("Pulled from '");
-    printf(remote);
-    printf("'\n");
     
 };
 
@@ -203,14 +169,12 @@ void gitRevert (char *commit){
     char *command = "git revert ";
     strcat(command, commit);
     system(command);
-    printf("Reverted to commit '");
-    printf(commit);
-    printf("'\n");
     
 };
 
 
 //git command which allows the user to input any git command
+//DO NOT ADD GIT AT THE BEGINING OF THE COMMAND
 //@param command: the command you want to run
 void gitCustom (char *command){
     //idkw hy I added this but i wanted too
@@ -228,8 +192,35 @@ void gitTag (char *tag){
     char *command = "git tag ";
     strcat(command, tag);
     system(command);
-    printf("Tagged '");
-    printf(tag);
-    printf("'\n");
     
 };
+
+//git command which allows user to remove a tag
+//@param tag: the tag you want to remove
+void gitTagDelete (char *tag){
+    
+    char *command = "git tag -d ";
+    strcat(command, tag);
+    system(command);
+    
+};
+
+//git flow initialize
+void gitFlowInit(){
+    
+    char *command = "git flow init";
+    system(command);
+    
+};
+
+//git flow feature branch
+//@param feature: the name of the feature branch
+void gitFlowFeature (char *feature){
+    
+    char *command = "git flow feature start ";
+    strcat(command, feature);
+    system(command);
+    
+};
+
+
